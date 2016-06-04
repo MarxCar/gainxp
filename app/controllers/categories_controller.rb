@@ -14,9 +14,15 @@ class CategoriesController < ApplicationController
            render 'new'
         end
     end
+    def show
+        @category = Category.find_by(id: params[:id])
+        @listings = @category.listings
+    end
     
     private
     def category_params
         params.require(:category).permit(:title)
     end
+    
+
 end

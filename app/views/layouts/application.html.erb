@@ -7,22 +7,49 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-<%= link_to "Home", root_path %>
 
-<% if logged_in? %>
-
-  Hello, <%= current_user.username %>!
-  <%= link_to "Create Listing", new_listing_path%>
-  <%= link_to "Create Category", new_category_path%>
-  <%= link_to "Logout", logout_path, :method => :delete %>
+  <%= bootstrap_flash %>
+    
+  <div class="container">
+    <div class="row">
+    
+      <div class="col-md-3" id="left">
+        <%= link_to((image_tag '/assets/logo2.png', :id => "logo"), root_path) %>
+        
+        <% if !@categories.nil? %>
+          <div class="filters">
+            <h4>Filters</h4>
+            <%= render 'shared/categories' %>        
+          </div>
+        <% end %>
+      </div>
+      
+      
+      <div class="col-md-6" id="center">
+        <%= yield %>
+      </div>
+      
+      <div class="col-md-3" id="right">
+        
+      </div>
+    </div>
+  </div>
+  <!---
+  <%= link_to "Home", root_path %>
   
-<% else %>
-  <%= link_to "Login", login_path %>
-<% end %>
-<%= flash[:success] %>
-<%= flash[:danger] %>
-
-<%= yield %>
-
+  
+  <% if logged_in? %>
+  
+    Hello, <%= current_user.username %>!
+    <%= link_to "Create Listing", new_listing_path%>
+    <%= link_to "Create Category", new_category_path%>
+    <%= link_to "Logout", logout_path, :method => :delete %>
+    
+  <% else %>
+    <%= link_to "Login", login_path %>
+  <% end %>
+  
+  
+  --->
 </body>
 </html>

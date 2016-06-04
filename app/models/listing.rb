@@ -10,4 +10,12 @@ class Listing < ActiveRecord::Base
             errors.add(:deadline, "Deadline must be greater than today's date")
         end
     end
+    
+    def self.search(search)
+      if search
+        self.where("name like ?", "%#{search}%")
+      else
+        self.all
+      end
+    end
 end

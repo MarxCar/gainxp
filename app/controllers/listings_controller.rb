@@ -1,7 +1,8 @@
 class ListingsController < ApplicationController
     
     def index
-       @listings = Listing.all 
+       @listings = Listing.search(params[:search])
+       @categories = Category.all.order(:title)
     end
     def new
         if require_login

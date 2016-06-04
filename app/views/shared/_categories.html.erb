@@ -1,0 +1,3 @@
+<% @categories.each do |cat| %>
+    <p><%= link_to cat.title + "(#{cat.listings.count})", category_path(cat), :class => "category" %></p>
+<% end %>
