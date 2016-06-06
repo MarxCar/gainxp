@@ -16,7 +16,8 @@ class CategoriesController < ApplicationController
     end
     def show
         @category = Category.find_by(id: params[:id])
-        @listings = @category.listings
+        @listings = @category.listings.search(params[:search])
+        @categories = Category.all.order(:title)
     end
     
     private

@@ -13,7 +13,7 @@ class Listing < ActiveRecord::Base
     
     def self.search(search)
       if search
-        self.where("name like ?", "%#{search}%")
+        self.where("title like ?", "%#{search}%")
       else
         self.all
       end

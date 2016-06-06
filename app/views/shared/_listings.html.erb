@@ -1,4 +1,4 @@
-<% unless @listings.empty? %>
+<% if !@listings.empty? %>
 
     <% @listings.each do |list| %>
         <div id="listing">
@@ -11,6 +11,9 @@
             <p>Posted: <b><%= time_ago_in_words(list.created_at).titleize %> Ago</b></p>
         </div>
     <% end %>
+
+<% elsif !params[:search].nil? %>
+    <h5>No Job Postings Found in <%= @category.title %> with the keyword "<%= params[:search] %>"</h5>
 <% else %>
-    <h3>No Job Postings Found in <%= @category.title %></h3>
+    <h5>No Job Postings Found in <%= @category.title %></h5>
 <% end %>
