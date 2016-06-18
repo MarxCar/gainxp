@@ -1,0 +1,45 @@
+<%= form_for(@listing) do |f| %>
+  <%= render 'errors' %>
+    <table>
+        <tr>
+            <td><%= f.label :title %></td>
+            <td><%= f.text_field :title%></td>
+        </tr>
+        <tr>
+            <td><%= f.label :link %></td>
+            <td><%= f.text_field :link %></td>
+        </tr>
+        <tr>
+            <td><%= f.label  "Yearly Salary" %></td>
+            <td><%= f.number_field :salary %></td>
+        </tr>
+        <tr>
+            <td><%= f.label "Hourly Wage (eg, $15)" %></td>
+            <td><%= f.number_field :wage %></td>
+        </tr>
+        <tr>
+            <td><%= f.label :organization%></td>
+            <td><%= f.text_field :organization %></td>
+        </tr>
+
+        <tr>
+            <td><%= f.label :deadline%></td>
+            <td><%= f.date_select :deadline, order: [:day, :month, :year] %></td>
+        </tr>
+        <tr>
+            <td><%= f.label :city%></td>
+            <td><%= f.collection_select :city_id, City.all.order(:title), :id, :title, {}, {:multiple => false}%></td>
+        </tr>
+        <tr>
+            <td><%= f.label :category %></td>
+            <td><%= f.collection_select :category_ids, Category.all.order(:title), :id, :title, {}, {:multiple => true} %></td>
+        </tr>
+        <tr>
+            <td><%= f.label :description %></td>
+            <td><%= f.text_area :description, :size => "40x15"%></td>
+        </tr>
+        <tr>
+            <td><%= f.submit "Update Posting" %></td>
+        </tr>
+    </table>
+<% end %>

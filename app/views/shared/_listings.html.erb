@@ -1,19 +1,39 @@
 <% if !@listings.empty? %>
 
     <% @listings.each do |list| %>
-        <div id="listing">
+        <div id="listing" class=<%= cycle('gray_listing', 'white_listing') %>>
+            <span id="deadline">Deadline: <%= list.deadline.strftime('%b %d %Y') %></span>
+            <h4><b><%= link_to list.title, list.link %></b></h4>
             
-            <h4><%= link_to list.title, list.link %></h4>
-            <span id="deadline">Deadline: <%= list.deadline.strftime('%a %d %b %Y') %></span>
-            <span id="organization"> <%= list.organization %> <span id="salary">$<%= number_with_delimiter(list.salary, :demiliter => ',') %></span></span>
+            <span id="organization"> <%= list.organization %>
+                <% unless list.salary == 0 %>
+                    <span id="salary">$<%= number_with_delimiter(list.salary, :demiliter => ',') %></span>
+                <% else %>
+                    <span id="salary">$<%= list.wage %>/hr</span>
+                <% end %>
+            </span>
             
             <p id="description"><%= list.description %></p>
-            <p>Posted: <b><%= time_ago_in_words(list.created_at).titleize %> Ago</b></p>
+            <p id="posted">Posted: <b><%= time_ago_in_words(list.created_at).titleize %> Ago</b></p>
+            <p><%= list.city.title %></p>
+                
+           
+            <% if logged_in? %>
+                <div class="form-inline">
+                <%= link_to "Edit", edit_listing_path(list), method: :get, :class => "btn btn-primary"%>
+                <%= link_to "Destroy", list, data: {confirm: "Are you sure you want to delete this?"},method: :delete, :class => "btn btn-danger" %>
+                
+                </div>
+            <% end %>
         </div>
     <% end %>
-
-<% elsif !params[:search].nil? %>
+    <%= will_paginate @listings %>
+<% elsif !params[:search].nil? && !@category.nil? %>
     <h5>No Job Postings Found in <%= @category.title %> with the keyword "<%= params[:search] %>"</h5>
+<% elsif !params[:search].nil? %>
+    <h5>No Job Postings Found With The Keyword(s) "<%= params[:search] %>"</h5>
+<% elsif !params[:city].nil? %>
+    <h5>No Job Postings Found in <%= City.find(params[:city]).title %></h5>
 <% else %>
     <h5>No Job Postings Found in <%= @category.title %></h5>
 <% end %>

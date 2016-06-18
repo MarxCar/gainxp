@@ -7,16 +7,16 @@ class CategoriesController < ApplicationController
     def create
         category = Category.new(category_params)
         if category.save
-            flash.now[:success] = "You have created the #{category.title} category!"
-            redirect_to root_path
+            flash[:success] = "You have created the #{category.title} category!"
+            redirect_to new_listing_path
         else
-           flash[:danger] = "Title must be present"
+           flash.now[:danger] = "Title must be present"
            render 'new'
         end
     end
     def show
         @category = Category.find_by(id: params[:id])
-        @listings = @category.listings.search(params[:search])
+        @listings = listing_category(@category.listings)
         @categories = Category.all.order(:title)
     end
     

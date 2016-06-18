@@ -1,4 +1,8 @@
 <br/>
 <%= render 'shared/search_category'%>
-<h2><%= @category.title %></h2>
+<div class="top">
+    <%= render 'shared/sort_category'%>
+    <%= render 'shared/city_category' %>
+    <h2><%= @category.title %></h2>
+</div>
 <%= render 'shared/listings' %>

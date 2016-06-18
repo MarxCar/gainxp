@@ -1,6 +1,11 @@
 
 <br/>
 <%= render 'shared/search'%>
-<h4>Current Job Postings</h4>
+<div class="top">
+    <%= render 'shared/sort' %>
+    <%= render 'shared/city' %>
+    <h3 id="current_postings">Current Job Postings</h3>
+    
+</div>
 
 <%= render 'shared/listings' %>

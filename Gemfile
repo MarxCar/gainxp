@@ -31,6 +31,9 @@ gem "twitter-bootstrap-rails"
 gem 'therubyracer'
 gem 'bootstrap-sass'
 
+gem 'will_paginate', '~> 3.1.0'
+
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
@@ -50,7 +53,7 @@ group :development do
   gem 'sqlite3'
 end
 group :production do
-  gem 'pg'
+
   gem 'rails_12factor'
   gem 'puma'
 end

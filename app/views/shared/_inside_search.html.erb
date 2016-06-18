@@ -1,10 +1,11 @@
   <div class="input-group">
-    
-    <%= text_field_tag :search, params[:search], :class => "form-control"%>
+    <%= hidden_field_tag :city, params[:city] %>
+    <%= hidden_field_tag :sort, params[:order_type]%>
+    <%= text_field_tag :search, params[:search], :class => "form-control", :name => "search", :id => "search", :placeholder => "Search"%>
     
     <span class="input-group-btn">
       <%= button_tag(type: "submit", :class => "btn btn-default") do %>
-        <i class="glyphicon glyphicon-search"></i>
+        <small><span class="glyphicon glyphicon-search" id="sizing-addon2"></span></small>
       <% end %>
     </span>
   

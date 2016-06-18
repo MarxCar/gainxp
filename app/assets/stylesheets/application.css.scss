@@ -2,7 +2,7 @@
 
 @import "bootstrap-sprockets";
 #logo {
-    width: 100%;
+    width: 120%;
 }
 .filters {
     margin-top: 30px;
@@ -14,19 +14,53 @@
 
 #listing {
     border-top: 2px solid gray;
-    line-height: 130%;
-    
+    line-height: 110%;
+    padding-bottom:1px;
 }
-
-
+#organization {
+    font-family: "Times New Roman";
+}
+#sort {
+    
+    float:right;
+}
 #salary {
     color: rgb(55, 196, 130);
 }
 #deadline {
     float:right;
+    font-size: 11.5px;
+    font-weight: bold;
 }
 .current_category a {
     color: black !important;
+}
+#listing h4 {
+    margin:1px;    
+}
+#current_postings {
+    margin-top: 40px;
+}
+#description {
+    font-size: 10pt;
+    padding-top: 3px;
+}
+.gray_listing {
+    background-color: #eaeaea;
+}
+
+#posted {
+    font-size: 11.5px;
+    
+    margin-top: -6px;
+    margin-bottom: 7px;
+
+}
+#about_postings {
+    margin-top:-10px;
+}
+#right p {
+    color: gray;
 }
 
 @media only screen and (max-width: 767px) {
@@ -34,7 +68,9 @@
         width: 25%;
     }
 }
-
+.col-sm-3 {
+    margin-top: 30px;
+}
 @font-face {
    font-family: 'Glyphicons Halflings';
    src: url('/assets/glyphicons-halflings-regular.eot');
@@ -42,4 +78,56 @@
       url('/assets/glyphicons-halflings-regular.woff') format('woff'),
       url('/assets/glyphicons-halflings-regular.ttf') format('truetype'),
       url('/assets/glyphicons-halflings-regular.svg#glyphicons_halflingsregular') format('svg');
+}
+
+
+.search-form .form-group {
+  float: left !important;
+  transition: all 0.35s, border-radius 0s;
+  width: 32px;
+  height: 32px;
+  background-color: #fff;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
+  border-radius: 25px;
+  border: 1px solid #ccc;
+}
+.search-form .form-group input.form-control {
+  padding-right: 20px;
+  border: 0 none;
+  background: transparent;
+  box-shadow: none;
+  display:block;
+}
+.search-form .form-group input.form-control::-webkit-input-placeholder {
+  display: none;
+}
+.search-form .form-group input.form-control:-moz-placeholder {
+  /* Firefox 18- */
+  display: none;
+}
+.search-form .form-group input.form-control::-moz-placeholder {
+  /* Firefox 19+ */
+  display: none;
+}
+.search-form .form-group input.form-control:-ms-input-placeholder {
+  display: none;
+}
+.search-form .form-group:hover,
+.search-form .form-group.hover {
+  width: 100%;
+  border-radius: 4px 25px 25px 4px;
+}
+.search-form .form-group span.form-control-feedback {
+  position: absolute;
+  top: -1px;
+  right: -2px;
+  z-index: 2;
+  display: block;
+  width: 34px;
+  height: 34px;
+  line-height: 34px;
+  text-align: center;
+  color: #3596e0;
+  left: initial;
+  font-size: 14px;
 }

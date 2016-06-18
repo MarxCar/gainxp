@@ -5,15 +5,16 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+  <%= favicon_link_tag 'favicon.ico'%>
 </head>
 <body>
-
+<!-- Do sort by deadline -->
   <%= bootstrap_flash %>
-    
+  
   <div class="container">
     <div class="row">
     
-      <div class="col-sm-3" id="left">
+      <div class="col-md-3" id="left">
         <%= link_to((image_tag '/assets/logo2.png', :id => "logo"), root_path) %>
         
         <% if !@categories.nil? %>
@@ -25,14 +26,14 @@
       </div>
       
       
-      <div class="col-sm-6" id="center">
+      <div class="col-md-6" id="center">
         <%= yield %>
       </div>
       
-      <div class="col-sm-3" id="right">
+      <div class="col-md-3" id="right">
         <h4>About us</h4>
-        <p>GainXP.ca <em>is a pure job listings website for <b>young professionals</b></p>
-        <p>The postings are <b>agency-free,</b> <br/>
+        <p>GainXP.ca <em>is a pure job listings website for <b>young professionals.</b></p>
+        <p id="about_postings">The postings are <b>agency-free,</b> <br/>
         a minimum starting salary of <b>$40,000</b> <br/>
         and <b>less than 5 years required experience</b>
         </p>
