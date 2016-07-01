@@ -5,7 +5,13 @@ development:
   pool: 5
   username: sam
   password: pass
-
+production:
+  adapter: postgresql
+  encoding: unicode
+  database: gainxp_production
+  pool: 5
+  username: sam
+  password: pass
 test:
   adapter: postgresql
   encoding: unicode

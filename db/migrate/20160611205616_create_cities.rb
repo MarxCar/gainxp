@@ -6,6 +6,6 @@ class CreateCities < ActiveRecord::Migration
     end
     
     add_reference :listings, :city, index: true
-  
+    add_foreign_key :listings, :cities
   end
 end

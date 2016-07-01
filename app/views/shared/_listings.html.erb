@@ -34,8 +34,6 @@
     <h5>No Job Postings Found With The Keyword(s) "<%= params[:search] %>"</h5>
 <% elsif !params[:city].nil? %>
     <h5>No Job Postings Found in <%= City.find(params[:city]).title %></h5>
-<% elsif Listing.all.empty? %>
-    <h5>No Job Postings Availables</h5>
 <% else %>
     <h5>No Job Postings Found in <%= @category.title %></h5>
 <% end %>
